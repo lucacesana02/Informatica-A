@@ -1,49 +1,31 @@
+#include <stdio.h>
+
+//Leggere t caratteri e contare quante sono le vocali.
 int main(int argc, const char * argv[]) {
-    char c;
-    int contVocali = 0;
-    int contCaratteriStrani = 0;
+    char car;
+    int cont = 0;
+    int contaVocali = 0;
     
-    printf("Inserisci 5 lettere seguiti dall'invio: ");
-    //fflush(stdin); //WIN
-    //fpurge(stdin); //MAC
-    scanf(" %c",&c);
+    printf("Inserisci una lettera: \n");
     
-    if ((c<'A') || ((c>'Z') && (c<'a')) || (c>'z'))
-        contCaratteriStrani++;
+    while(cont<5){
+        cont++;
+        do{
+            scanf(" %c",&car);
+            if ((car<'A') || ((car>'Z') && (car<'a')) || (car>'z'))
+                printf("Ti avevo chiesto una lettera!!!\n");
+        }while((car<'A') || ((car>'Z') && (car<'a')) || (car>'z'));
+        
+        //Trasformiamo tutto in minuscole
+        if (car<'a')
+            car = car -'A'+'a';
+        
+        if ((car=='a') || (car=='e') || (car=='i') || (car=='o') || (car=='u')){
+            contaVocali++;
+        }
+    }
+    printf("Le vocali inserite sono: %d\n\n",contaVocali);
     
-    if ((c=='a') || (c=='e') || (c=='i') || (c=='o') || (c=='u')
-     || (c=='A') || (c=='E') || (c=='I') || (c=='O') || (c=='U'))
-        contVocali++; //contVocali = contVocali+1;
-    
-    scanf(" %c",&c);
-    if ((c<'A') || ((c>'Z') && (c<'a')) || (c>'z'))
-        contCaratteriStrani++;
-    if ((c=='a') || (c=='e') || (c=='i') || (c=='o') || (c=='u')
-     || (c=='A') || (c=='E') || (c=='I') || (c=='O') || (c=='U'))
-        contVocali++; //contVocali = contVocali+1;
-    
-    scanf(" %c",&c);
-    if ((c<'A') || ((c>'Z') && (c<'a')) || (c>'z'))
-        contCaratteriStrani++;
-    if ((c=='a') || (c=='e') || (c=='i') || (c=='o') || (c=='u')
-     || (c=='A') || (c=='E') || (c=='I') || (c=='O') || (c=='U'))
-        contVocali++; //contVocali = contVocali+1;
-    
-    scanf(" %c",&c);
-    if ((c<'A') || ((c>'Z') && (c<'a')) || (c>'z'))
-        contCaratteriStrani++;
-    if ((c=='a') || (c=='e') || (c=='i') || (c=='o') || (c=='u')
-     || (c=='A') || (c=='E') || (c=='I') || (c=='O') || (c=='U'))
-        contVocali++; //contVocali = contVocali+1;
-    
-    scanf(" %c",&c);
-    if ((c<'A') || ((c>'Z') && (c<'a')) || (c>'z'))
-        contCaratteriStrani++;
-    if ((c=='a') || (c=='e') || (c=='i') || (c=='o') || (c=='u')
-     || (c=='A') || (c=='E') || (c=='I') || (c=='O') || (c=='U'))
-        contVocali++; //contVocali = contVocali+1;
-    
-    printf("Il numero di vocali inserite è: %d\n",contVocali);
-    printf("I caratteri strani sono: %d\n", contCaratteriStrani);
+
     return 0;
 }
